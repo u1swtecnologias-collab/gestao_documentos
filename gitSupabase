@@ -1,0 +1,6 @@
+git add .
+git commit -m "Meu projeto com banco no Supabase"
+git branch -M main
+# Substitua a linha abaixo pelo link que o GitHub te deu:
+git remote add origin https://github.com/u1swtecnologias-collab/gestao_documentos.git
+git push -u origin main
