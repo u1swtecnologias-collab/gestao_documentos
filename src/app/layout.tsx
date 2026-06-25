@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Sistema de Gestão de Documentos",
   description: "Sistema de Gestão de Documentos",
   verification: {
-    google: "XHDmO0QfoAbdz02XSVPjLCEZCBLIJIP57TVudVShA2w",
+    google: "lOaGb6Cq8m7mCzHHuQ3rysBg7nagqcQcxSppOMpa0DI",
   },
 };
 
