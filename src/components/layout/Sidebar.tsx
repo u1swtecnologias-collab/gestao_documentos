@@ -44,8 +44,8 @@ export default async function Sidebar() {
   });
 
   return (
-    <aside className="w-80 border-r bg-slate-50 flex flex-col h-full overflow-hidden shrink-0">
-      <div className="p-4 border-b bg-slate-100/50">
+    <aside className="w-full md:w-80 border-b md:border-b-0 md:border-r bg-slate-50 flex flex-col max-h-[40vh] md:max-h-none md:h-full overflow-hidden shrink-0">
+      <div className="p-3 md:p-4 border-b bg-slate-100/50">
         <h2 className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Árvore Documental</h2>
       </div>
       <div className="flex-1 overflow-auto p-4">

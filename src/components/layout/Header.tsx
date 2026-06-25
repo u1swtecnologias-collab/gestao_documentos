@@ -8,14 +8,14 @@ export default async function Header() {
   const areas = await prisma.area.findMany({ select: { id: true, nome: true }});
 
   return (
-    <header className="flex h-16 items-center justify-between border-b px-6 bg-white shrink-0">
-      <div className="flex items-center gap-4">
-        <h1 className="text-xl font-semibold text-slate-800">
+    <header className="flex flex-col md:flex-row h-auto md:h-16 items-center justify-between border-b px-4 py-3 md:py-0 md:px-6 bg-white shrink-0 gap-3 md:gap-0">
+      <div className="flex items-center gap-2 text-center">
+        <h1 className="text-lg md:text-xl font-semibold text-slate-800">
           Sistema de Gestão de Documentos
         </h1>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 w-full md:w-auto">
         {session?.user && ((session.user as any).perfilNome === "Administrador" || (session.user as any).perfilNome === "Gestor") && (
           <div className="flex items-center gap-3 mr-2">
             <a href="/dashboard/usuarios" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
