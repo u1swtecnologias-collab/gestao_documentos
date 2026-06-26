@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sistema de Gestão de Documentos",
-  description: "Sistema de Gestão de Documentos",
+  title: "Gestor de Documentos",
+  description: "Plataforma centralizada para Gestão de Documentos e Processos.",
   verification: {
     google: "lOaGb6Cq8m7mCzHHuQ3rysBg7nagqcQcxSppOMpa0DI",
   },
