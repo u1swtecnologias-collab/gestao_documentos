@@ -2,9 +2,13 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // Allow access to the password page
-  if (request.nextUrl.pathname.startsWith('/site-password')) {
-    return NextResponse.next()
+  const { pathname } = request.nextUrl;
+
+  // Rotas públicas que o Google e usuários precisam acessar antes de fazer login
+  const publicPaths = ['/site-password', '/', '/privacidade', '/termos'];
+  
+  if (publicPaths.includes(pathname) || pathname.startsWith('/api/auth')) {
+    return NextResponse.next();
   }
 
   const sitePasswordCookie = request.cookies.get('site_access_token')
