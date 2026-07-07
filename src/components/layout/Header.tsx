@@ -2,6 +2,7 @@ import { auth, signOut } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import CreateProcessModal from "@/components/CreateProcessModal";
 import CreateAreaModal from "@/components/CreateAreaModal";
+import RequestAccessButton from "@/components/RequestAccessButton";
 
 export default async function Header() {
   const session = await auth();
@@ -30,12 +31,7 @@ export default async function Header() {
         <CreateProcessModal areas={areas} />
 
         {session?.user && (session.user as any).perfilNome === "Consulta" && (
-          <a 
-            href="mailto:u1.swtecnologias@gmail.com?subject=Solicitação de Acesso ao Sistema de Gestão de Documentos&body=Olá administrador, solicito alteração do meu perfil de acesso para Editor/Gestor no Sistema de Gestão de Documentos." 
-            className="ml-2 text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1.5 rounded-md hover:bg-blue-100 transition-colors border border-blue-200"
-          >
-            Solicitar Acesso
-          </a>
+          <RequestAccessButton />
         )}
 
         <div className="flex items-center gap-3 ml-4 border-l pl-4">

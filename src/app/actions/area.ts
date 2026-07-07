@@ -2,8 +2,10 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { auth } from "@/auth";
 
 export async function createArea(formData: FormData) {
+  const session = await auth();
   const nome = formData.get("nome") as string;
 
   if (!nome || nome.trim() === "") {
@@ -24,11 +26,19 @@ export async function createArea(formData: FormData) {
   }
   const nextCodigo = nextCodigoNum.toString().padStart(2, '0');
 
+  const data: any = {
+    nome: nome.trim(),
+    codigo: nextCodigo,
+  };
+
+  if (session?.user?.id) {
+    data.usuariosComAcesso = {
+      connect: { id: session.user.id }
+    };
+  }
+
   await prisma.area.create({
-    data: {
-      nome: nome.trim(),
-      codigo: nextCodigo,
-    }
+    data
   });
 
   revalidatePath("/dashboard");
