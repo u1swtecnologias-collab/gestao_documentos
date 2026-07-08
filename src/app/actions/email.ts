@@ -41,6 +41,9 @@ export async function solicitarAcessoAction() {
     return { success: true, message: "Solicitação de acesso enviada com sucesso!" };
   } catch (error) {
     console.error("Erro ao enviar email:", error);
-    return { success: false, message: "Erro ao enviar a solicitação. Tente novamente mais tarde." };
+    return { 
+      success: false, 
+      message: "Erro no servidor de e-mail. Para funcionar, é necessário configurar o EMAIL_USER e o EMAIL_PASS (Senha de Aplicativo do Google) nas variáveis de ambiente."
+    };
   }
 }
