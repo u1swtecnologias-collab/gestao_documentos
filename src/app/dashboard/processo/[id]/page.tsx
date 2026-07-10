@@ -6,6 +6,7 @@ import CreateGDocModal from "@/components/CreateGDocModal";
 import EditProcessModal from "@/components/EditProcessModal";
 import EditDocumentModal from "@/components/EditDocumentModal";
 import DeleteButton from "@/components/DeleteButton";
+import { Download } from "lucide-react";
 
 export default async function ProcessoPage({ params }: { params: { id: string } }) {
   const { id } = await params;
@@ -113,6 +114,17 @@ export default async function ProcessoPage({ params }: { params: { id: string } 
                     <td className="px-4 py-3">{doc.criadoEm.toLocaleDateString()}</td>
                     <td className="px-4 py-3">{doc.criadoPor.name || 'Desconhecido'}</td>
                     <td className="px-4 py-3 flex items-center justify-end gap-1">
+                      <a 
+                        href={doc.driveTipo === 'gdoc' 
+                          ? `https://docs.google.com/document/d/${doc.driveFileId}/export?format=pdf` 
+                          : `https://drive.google.com/uc?export=download&id=${doc.driveFileId}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 text-slate-500 hover:text-blue-600 transition-colors"
+                        title="Baixar Arquivo"
+                      >
+                        <Download className="h-4 w-4" />
+                      </a>
                       <EditDocumentModal documento={doc} tipos={tipos} />
                       <DeleteButton id={doc.id} type="documento" itemName={doc.nome} />
                     </td>
