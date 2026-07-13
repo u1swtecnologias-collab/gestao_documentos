@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gestao-documentos-dlnk.vercel.app"),
   title: "Gestor de Documentos",
   description: "Plataforma centralizada para Gestão de Documentos e Processos.",
+  alternates: {
+    canonical: "/",
+  },
   verification: {
     google: "vHE5a4RY1pUqcipro_o4l6ByIIYBAO7U5JDdpMzueT0",
   },
