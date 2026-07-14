@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ['brick-reply-unwed.ngrok-free.dev'],
   experimental: {
     serverActions: {
-      bodySizeLimit: '100mb',
+      bodySizeLimit: '2000mb', // Aumentado para 2GB (efetivamente sem limite prático para arquivos comuns)
     },
   },
 };
