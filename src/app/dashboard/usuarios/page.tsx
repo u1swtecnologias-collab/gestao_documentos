@@ -30,7 +30,7 @@ export default async function UsuariosPage() {
   const areas = await prisma.area.findMany();
 
   return (
-    <div className="flex flex-col h-full gap-6">
+    <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-bold text-slate-800">Gestão de Usuários</h1>
         <p className="text-sm text-slate-500">Gerencie os níveis de acesso e pastas de cada usuário.</p>
