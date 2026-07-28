@@ -137,7 +137,11 @@ export async function uploadFile(formData: FormData) {
       });
     }
   } catch (e: any) {
-    console.error("Aviso: Falha ao enviar para o Drive de backup:", e.message);
+    console.error("================ ERROR BACKUP ==================");
+    console.error("Aviso: Falha ao enviar para o Drive de backup.");
+    console.error("Mensagem:", e.message);
+    console.error("Stack:", e.stack);
+    console.error("================================================");
   }
 
   // Registrar no Banco de Dados
@@ -273,7 +277,11 @@ export async function createGDoc(formData: FormData) {
       });
     }
   } catch (e: any) {
-    console.error("Aviso: Falha ao criar atalho no Drive de backup:", e.message);
+    console.error("================ ERROR BACKUP ==================");
+    console.error("Aviso: Falha ao criar atalho no Drive de backup.");
+    console.error("Mensagem:", e.message);
+    console.error("Stack:", e.stack);
+    console.error("================================================");
   }
 
   await prisma.documento.create({

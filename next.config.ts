@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   // Allow ngrok for HMR
   allowedDevOrigins: ['brick-reply-unwed.ngrok-free.dev'],
   experimental: {
